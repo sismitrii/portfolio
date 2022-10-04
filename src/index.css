@@ -16,3 +16,18 @@ code {
     monospace;
 }
 
+nav a {
+  text-align: center;
+  display: block;
+  width: 150px;
+  padding: 28px 10px;
+}
+
+
+.active {
+  border-radius: 70px 30px 70px 30px;
+  background-color: #6B99C3;
+  color: #FFF;
+  box-shadow: 0px 0px 5px #6B99C3;
+}
+
