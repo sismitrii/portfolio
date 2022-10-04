@@ -11,7 +11,7 @@ module.exports = {
           '40%':{opacity:1},
           '60%':{opacity:1},
           '80%':{opacity:0},
-          '100%':{opacity:0, top:50},
+          '100%':{opacity:0, top: '70%'},
         }
       },
       animation : {
