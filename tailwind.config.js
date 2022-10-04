@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'bgBlue': '#18384F',
+        'navBlue': '#6B99C3'
+      },
       keyframes : {
         arrowDown:{
           '0%':{opacity:0},
