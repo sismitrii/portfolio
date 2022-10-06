@@ -39,7 +39,7 @@ export default function Competence(){
 
     ]
  return (
-    <section id="competence" className=" flex flex-col justify-center items-center bg-white">
+    <section id="competence" className="flex flex-col justify-center items-center bg-white">
         <SectionTitle colored={true}>
             COMPETENCE
         </SectionTitle>
@@ -47,7 +47,6 @@ export default function Competence(){
             {competenceTab.map((competence,index)=>(
                 <CompetenceCircle key={index} text={competence.text} color={competence.color} percentage={competence.percentage} />
             ))}
-            {/* <button onClick={()=>setValue(70)}>Click</button> */}
         </article>
     </section>
  )
