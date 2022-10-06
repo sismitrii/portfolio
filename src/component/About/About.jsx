@@ -1,9 +1,18 @@
 import SectionTitle from "../General/SectionTitle"
 
+import { useEffect, useRef } from "react"
+import { slide } from "../../utils/function"
+
 export default function About(){
+    const slided = useRef(null)
+
+    useEffect(()=>{
+        slide(slided.current)
+    },[])
+
     return(
         <section id='about'className ='w-full border-b-2 bg-bgBlue text-white flex justify-center items-center'>
-            <div className="flex flex-col w-1/2 mx-auto -mt-20">
+            <div className="flex flex-col w-1/2 mx-auto -mt-20" ref={slided}>
                 <SectionTitle colored={false}>
                     ABOUT ME
                 </SectionTitle>
