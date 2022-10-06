@@ -1,5 +1,6 @@
 import React from 'react';
 import ScrollSpy from 'react-scrollspy-navigation';
+import file from '../../assets/files/CV_Guerin_Florian.pdf'
 
 export default function Navbar(){
     return (
@@ -12,7 +13,8 @@ export default function Navbar(){
                     <a href="#competence" ref={React.createRef()}>Competence</a>
                     <a href="#realisations" ref={React.createRef()}>Réalisations</a>
                     <a href="#contact" ref={React.createRef()}>Contact</a>
-                    <a href="#">CV</a>
+                    <a href={file} download>CV</a>
+                    {/*Lien à changer lors de l'uploading */}
                 </ScrollSpy>
             </nav>
         </div>
