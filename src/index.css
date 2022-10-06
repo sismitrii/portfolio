@@ -16,11 +16,25 @@ code {
     monospace;
 }
 
+section {
+  margin-top: -5rem;
+  height: calc(100vh + 5rem);
+}
+
 nav a {
   text-align: center;
   display: block;
   width: 150px;
   padding: 28px 10px;
+  //text-transform: uppercase;
+}
+
+nav a:hover {
+  color : #6B99C3;
+  font-size: 1.1rem;
+  font-weight: 600;
+
+  transition : all 0.3s ease-in-out;
 }
 
 
@@ -30,4 +44,21 @@ nav a {
   color: #FFF;
   box-shadow: 0px 0px 5px #6B99C3;
 }
+
+nav a.active:hover{
+  color: #FFF;
+}
+
+#contact-ancre {
+  box-shadow: 5px 5px 25px 1px rgba(0,0,0, 0.25);
+  transition: all 0.2s linear;
+}
+
+#contact-ancre:active{
+  transform: scale(0.8);
+  box-shadow: 3px 2px 25px 1px rgba(0,0,0, 0.25);
+}
+
+
+
 
