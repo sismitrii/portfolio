@@ -1,13 +1,7 @@
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { useRef, useState } from "react";
-
-import {gsap} from 'gsap'
-import {ScrollTrigger} from 'gsap/ScrollTrigger'
-import {ScrollToPlugin} from 'gsap/ScrollToPlugin'
-import { useEffect } from "react"
-
-gsap.registerPlugin(ScrollTrigger)
+import { useRef, useState, useEffect } from "react";
+import { slide } from '../../utils/function';
 
 export default function CompetenceCircle({text, color, percentage}){
     const [value, setValue] = useState(0);
@@ -17,28 +11,8 @@ export default function CompetenceCircle({text, color, percentage}){
         setValue(percentage)
     }
 
-    const slide = (elem, delay, duration) => {
-        gsap.fromTo(
-            elem,
-            {
-                opacity:0,
-                y: 200
-            },
-            {
-                opacity:1,
-                y:0,
-                onComplete: updateValue,
-                scrollTrigger : {
-                    trigger: elem,
-                    start: 'top bottom'
-                }
-            }
-        )
-    }
-
-
     useEffect(()=>{
-        slide(circle.current);
+        slide(circle.current,updateValue);
     },[])
 
     return (
