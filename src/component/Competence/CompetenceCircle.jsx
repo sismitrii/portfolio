@@ -1,19 +1,19 @@
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { slide } from '../../utils/function';
 
 export default function CompetenceCircle({text, color, percentage}){
     const [value, setValue] = useState(0);
     const circle = useRef(null);
 
-    const updateValue = () =>{
+    const updateValue = useCallback(() =>{
         setValue(percentage)
-    }
+    },[setValue, percentage])
 
     useEffect(()=>{
         slide(circle.current,updateValue);
-    },[])
+    },[updateValue])
 
     return (
     <div>
