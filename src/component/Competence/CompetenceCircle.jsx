@@ -55,7 +55,7 @@ export default function CompetenceCircle({text, color, percentage}){
                     textColor: '#FFF',
                     pathColor: '#FFF',
                     trailColor: "transparent",
-                    pathTransitionDuration: 0.50
+                    pathTransitionDuration: 2
                 })} 
             />  
         </div>
