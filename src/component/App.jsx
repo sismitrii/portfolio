@@ -3,6 +3,7 @@ import Navbar from "./Navbar/Navbar";
 import About from "./About/About";
 import Competence from "./Competence/Competence";
 import Realisation from "./Realisation/Realisation";
+import Contact from "./Contact/Contact";
 
 export default function App() {
     return (
@@ -13,7 +14,7 @@ export default function App() {
             <About />
             <Competence />
             <Realisation />
-            <section id="contact" className="w-screen flex justify-center items-center bg-white">Test</section>
+            <Contact />
         </main>
     </>
     )
