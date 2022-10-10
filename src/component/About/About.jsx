@@ -11,8 +11,8 @@ export default function About(){
     },[])
 
     return(
-        <section id='about'className ='w-full border-b-2 bg-bgBlue text-white flex justify-center items-center'>
-            <div className="flex flex-col w-1/2 mx-auto -mt-20" ref={slided}>
+        <section id='about'className ='w-full h-[100vh] border-b-2 bg-bgBlue text-white flex justify-center items-center'>
+            <div className="flex flex-col w-1/2 mx-auto" ref={slided}>
                 <SectionTitle colored={false}>
                     ABOUT ME
                 </SectionTitle>
