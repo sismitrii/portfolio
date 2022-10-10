@@ -8,11 +8,13 @@ export default function App() {
     return (
     <>
         <Header />
-        <Navbar />
-        <About />
-        <Competence />
-        <Realisation />
-        <section id="contact" className="w-screen flex justify-center items-center bg-white">Test</section>
+        <main>
+            <Navbar />
+            <About />
+            <Competence />
+            <Realisation />
+            <section id="contact" className="w-screen flex justify-center items-center bg-white">Test</section>
+        </main>
     </>
     )
   }
