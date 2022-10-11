@@ -1,11 +1,32 @@
-import SectionTitle from "../General/SectionTitle"
 import emailjs from '@emailjs/browser';
 import { useState } from "react";
+
+import SectionTitle from "../General/SectionTitle"
+import ContactDataField from './ContactDataField';
 
 
 export default function Contact(){
 
+    const formTab = [
+        {
+            id: "name",
+            label: "Nom",
+            type:"text"
+        },
+        {
+            id: "email",
+            label: "Adresse mail",
+            type:"email"
+        },
+        {
+            id: "message",
+            label: "Message",
+            type:"textarea"
+        },
+    ]
+
     const [areFocused, setAreFocused] = useState({name: false, email: false, message:false})
+
     function sendEmail(e){
         e.preventDefault();
         emailjs.sendForm('service_zcgce0s', 'template_awnsviv', e.target, 'CdKX8qOegUowP4SZ8')
@@ -22,7 +43,14 @@ export default function Contact(){
                 className="flex flex-col w-full max-w-[700px] min-w-[300px]"
                 onSubmit={(e)=>sendEmail(e)}
             >
-                <label 
+                {formTab.map((dataField, index)=>(
+                    <ContactDataField 
+                        key={`${dataField.message}-${index}`} 
+                        dataField={dataField} 
+                        areFocused={areFocused} 
+                        setAreFocused={setAreFocused} />
+                ))}
+                {/* <label 
                     className={`${!areFocused.name && "translate-y-[35px] text-gray-500"} lg:top-9 text-lg lg:text-xl pl-3 duration-500`} 
                     htmlFor="name"
                 >
@@ -45,7 +73,7 @@ export default function Contact(){
                 </label>
                 <input 
                     className={`h-10 text-lg lg:h-12 lg:text-xl pl-3 duration-500 ${areFocused.message ? "mb-3" : "-mb-3"}`}
-                    type="mail" 
+                    type="email" 
                     id="user_mail" 
                     name="user_mail"
                     onFocus={()=>setAreFocused({...areFocused, email:true})}
@@ -58,13 +86,16 @@ export default function Contact(){
                 >
                     Message
                 </label>
+
+
                 <textarea 
                     className="text-lg lg:h-12 lg:text-xl p-3 duration-500"
                     id="message" 
                     name="message"
                     onFocus={()=>setAreFocused({...areFocused, message:true})}
                     onBlur={(e)=>{e.target.value === "" && setAreFocused({...areFocused, message:false})}} 
-                /> 
+                />  */}
+
                 <button 
                     className="border h-12 font-semibold text-2xl bg-navBlue text-white mt-5"
                     type="submit" 
