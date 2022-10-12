@@ -128,14 +128,14 @@ export default function Realisation(){
     return(
         <section id="realisations" className="w-screen h-fit flex flex-col justify-center items-center bg-bgBlue py-20">
             <SectionTitle colored={false}>
-                MES REALISATIONS
+                MES RÉALISATIONS
             </SectionTitle>
             <ul className="flex mb-10" aria-label="filter" aria-describedby="Liste de filtre pour les réalisations">
                 {filterTab.map((filter, index)=>(
                     <li key={index}>
                         <button 
                             onClick={()=>handleSelected(filter.name)} 
-                            className={`${isSelected === filter.name && "bg-navBlue text-white"} px-5 py-2 mx-5 bg-white hover:bg-navBlue hover:text-white duration-150`}>
+                            className={`${isSelected === filter.name ? "bg-navBlue text-white hover:text-white" : "bg-white" } px-5 py-2 mx-5  hover:bg-navBlue hover:text-white duration-150`}>
                                 {filter.name}
                         </button>
                     </li>
