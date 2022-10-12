@@ -10,7 +10,7 @@ export default function Navbar(){
     const [isOpen, setIsOpen] = useState(false)
     return (
         <div id="navbar" className={`z-50 border-b flex justify-between w-full sticky top-0 ${isOpen ? "h-screen" : "h-20"} bg-white duration-500`}>
-            <h2 className='ml-10 mt-6 text-2xl font-bold tracking-wider text-navBlue'>FLORIAN GUERIN</h2>
+            <h2 className='ml-10 mt-6 text-xl sm:text-2xl font-bold tracking-wider text-navBlue'>FLORIAN GUERIN</h2>
             {isMobile ? 
                 <NavbarMobile isOpen={isOpen} setIsOpen={setIsOpen} />
             :

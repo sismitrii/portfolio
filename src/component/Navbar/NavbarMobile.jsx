@@ -3,21 +3,21 @@ import file from '../../assets/files/CV_Guerin_Florian.pdf'
 export default function NavbarMobile({isOpen, setIsOpen}){
     
     return(
-    <div className='w-[150px] flex flex-col items-center mt-5'>
+    <div className={`h-full flex flex-col ${!isOpen ? "" : "mt-5"} items-end mr-5`}>
         <div 
-            className='w-[60px] h-[45px] relative mr-5 duration-500 ease-in-out cursor-pointer mb-16' 
+            className='w-[40px] h-[30px] absolute top-5 right-5 mr-2 duration-500 ease-in-out cursor-pointer' 
             onClick={()=>setIsOpen(!isOpen)}
         >
-            <span className={`block absolute w-full h-[9px] bg-navBlue rounded-[9px] duration-300 ease-in-out 
-                ${isOpen ? "top-[18px] -rotate-[135deg]":"top-[0px]"} `}></span>
-            <span className={`block absolute w-full h-[9px] bg-navBlue rounded-[9px] duration-300 ease-in-out top-[18px]
+            <span className={`block absolute w-full h-[6px] bg-navBlue rounded-[6px] duration-300 ease-in-out 
+                ${isOpen ? "top-[12px] -rotate-[135deg]":"top-[0px]"} `}></span>
+            <span className={`block absolute w-full h-[6px] bg-navBlue rounded-[6px] duration-300 ease-in-out top-[12px]
                 ${isOpen ? "opacity-0 left-12":"left-0"}`}></span>
-            <span className={`block absolute w-full h-[9px] bg-navBlue rounded-[9px] duration-300 ease-in-out 
-            ${isOpen ? "top-[18px] rotate-[135deg]":"top-[36px]"}`}></span>
+            <span className={`block absolute w-full h-[6px] bg-navBlue rounded-[6px] duration-300 ease-in-out 
+            ${isOpen ? "top-[12px] rotate-[135deg]":"top-[24px]"}`}></span>
         </div>
 
         {isOpen && 
-        <nav className="duration-500 uppercase flex flex-col items-end text-3xl">
+        <nav className=" absolute duration-500 uppercase flex flex-col items-end text-3xl mt-10">
                 <a className="p-5 my-3 font-bold hover:text-navBlue rotateY " href="#accueil" >Accueil</a>
                 <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-100" href="#about">About Me</a>
                 <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-200" href="#competence">Compétences</a>
