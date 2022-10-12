@@ -41,7 +41,7 @@ export default function Competence(){
  return (
     <section id="competence" className="flex flex-col justify-center items-center bg-white py-20">
         <SectionTitle colored={true}>
-            COMPETENCES
+            MES COMPÉTENCES
         </SectionTitle>
         <article className=" flex justify-center flex-wrap w-full max-w-[1300px] mx-auto">
             {competenceTab.map((competence,index)=>(
