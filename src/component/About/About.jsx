@@ -18,8 +18,8 @@ export default function About(){
                 </SectionTitle>
                 <article className='w-[490px] m-auto text-lg '>
                     <p>Je me présente <strong className="text-navBlue font-bolder">Florian</strong>, 26 ans.</p>
-                    <p className="mb-6"> Ancien navigateur aérien qui après 6 ans de bons et loyaux services à déçider de se consacrer à 100% à sa passion : le <strong className="text-navBlue font-bolder">Developpement Web</strong> !</p>
-                    <p>Lors de de mes 5 derniers mois en tant que militaire, j'ai pu suivre une formation de developpeur Web qui m'a permis d'approfondir mes connaissances. </p>
+                    <p className="mb-6"> Ancien navigateur aérien qui après 6 ans de bons et loyaux services à décider de se consacrer à 100 % à sa passion : le <strong className="text-navBlue font-bolder">Developpement Web</strong> !</p>
+                    <p>Lors de mes 5 derniers mois en tant que militaire, j'ai pu suivre une formation de développeur Web qui m'a permis d'approfondir mes connaissances. </p>
                     {/* <p>La passion pour l'informatique qui m'anime est de longue date. Je pense que je devais avoir 13 ans la première fois que j'ai "codé" (en C sur) </p>   */}
                     
                 </article>
