@@ -17,7 +17,7 @@ export default function Navbar(){
             <nav id='desktopNav' className='flex items-center mt-5'>
             <ScrollSpy> {/* Donne la classe active à l'element qui est en ref*/}
                 <a href="#accueil" ref={React.createRef()} >Accueil</a>
-                <a href="#about" ref={React.createRef()}>About Me</a>
+                <a href="#about" ref={React.createRef()}>À propos</a>
                 <a href="#competence" ref={React.createRef()}>Compétences</a>
                 <a href="#realisations" ref={React.createRef()}>Réalisations</a>
                 <a href="#contact" ref={React.createRef()}>Contact</a>

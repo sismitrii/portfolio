@@ -19,7 +19,7 @@ export default function NavbarMobile({isOpen, setIsOpen}){
         {isOpen && 
         <nav className=" absolute duration-500 uppercase flex flex-col items-end text-3xl mt-10">
                 <a className="p-5 my-3 font-bold hover:text-navBlue rotateY " href="#accueil" >Accueil</a>
-                <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-100" href="#about">About Me</a>
+                <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-100" href="#about">À propos</a>
                 <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-200" href="#competence">Compétences</a>
                 <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-300" href="#realisations">Réalisations</a>
                 <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-400" href="#contact">Contact</a>
