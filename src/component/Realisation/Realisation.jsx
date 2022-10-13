@@ -1,9 +1,10 @@
-import { useState } from "react"
+import { useContext, useState, useEffect, useRef } from "react"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 import SectionTitle from "../General/SectionTitle"
 import RealisationItem from "./RealisationItem"
+import { slide } from "../../utils/function"
 
 import GroupomaniaImg from "../../assets/images/Groupomania.png"
 import ClockImg from "../../assets/images/Clock.png" 
@@ -11,31 +12,17 @@ import KanapImg from "../../assets/images/Kanap.png"
 import PokedexImg from "../../assets/images/Pokedex.png" 
 import SpaceImg from "../../assets/images/SpaceInvaders.png" 
 import ParticulesImg from "../../assets/images/Particules.png" 
+import GradientImg from "../../assets/images/Gradient_background.png" 
+import HotTakesImg from "../../assets/images/Hot_Takes.png" 
+import ParallaxImg from "../../assets/images/Parallax.png" 
+import { AppContext } from "../../utils/context"
 
 
 export default function Realisation(){
     const [isSelected, setIsSelected] = useState("Tous");
+    const {isMobile} = useContext(AppContext)
 
-    const filterTab = [
-        {
-            name: "Tous"
-        },
-        {
-            name: "JS Vanilla"
-        },
-        {
-            name: "React"
-        },
-        {
-            name: "Node.js"
-        },
-        {
-            name: "OpenClassrooms"
-        },
-        {
-            name: "Projet Perso"
-        }
-    ]
+    const filterTab = [ "Tous", "JS Vanilla","React", "Node.js", "OpenClassrooms", "Projet Perso"]
 
     const tabProject = [
         {
@@ -80,13 +67,13 @@ export default function Realisation(){
             img: ParticulesImg,
             url: "https://particule-steel.vercel.app"
         },
-        // {
-        //     name: "Parrallax Scrolling",
-        //     description: "Animations au scroll de la page",
-        //     attribut: ["HTML","CSS", "JS Vanilla","Projet Perso"],
-        //     img: GroupomaniaImg,
-        //     url: "https://parallax-scrolling-six.vercel.app/"
-        // },
+        {
+            name: "Parrallax Scrolling",
+            description: "Animations au scroll de la page",
+            attribut: ["HTML","CSS", "JS Vanilla","Projet Perso"],
+            img: ParallaxImg,
+            url: "https://parallax-scrolling-six.vercel.app/"
+        },
         // {
         //     name: "Github Searcher",
         //     description: "Utilisation de l'API de Github",
@@ -101,47 +88,66 @@ export default function Realisation(){
         //     img: GroupomaniaImg,
         //     url: "https://memory-card-xi.vercel.app"
         // },
-        // {
-        //     name: "Generateur de dégradé",
-        //     description: "Création d'un dégradé colorer à l'aide de 2 ou plus code hexadécimal",
-        //     attribut: ["HTML","CSS", "JS Vanilla","Projet Perso"] ,
-        //     img: GroupomaniaImg,
-        //     url: "https://gradient-background-generator-phi.vercel.app"
-        // },
-        // {
-        //     name: "API Hot takes",
-        //     description: "6ème projet de la formation d'openClassrooms, création d'une API" ,
-        //     attribut: ["Node.js","Express", "MongoDb","OpenClassrooms"],
-        //     img: GroupomaniaImg,
-        //     url: "https://github.com/sismitrii/OC_P6_Hot_Takes"
-        // }
+        {
+            name: "Générateur de dégradé",
+            description: "Création d'un dégradé coloré à l'aide de codes hexadécimal",
+            attribut: ["HTML","CSS", "JS Vanilla","Projet Perso"] ,
+            img: GradientImg,
+            url: "https://gradient-background-generator-phi.vercel.app"
+        },
+        {
+            name: "API Hot takes",
+            description: "6ème projet de la formation d'openClassrooms, création d'une API" ,
+            attribut: ["Node.js","Express", "MongoDb","OpenClassrooms"],
+            img: HotTakesImg,
+            url: "https://github.com/sismitrii/OC_P6_Hot_Takes"
+        }
     ]
+    const slided = useRef(null)
+
+    useEffect(()=>{
+        slide(slided.current)
+    },[])
 
     const tabtoShow = isSelected === "Tous" ? tabProject : tabProject.filter((project)=>{
         return project.attribut.includes(isSelected);
     })
 
-    function handleSelected(name){
-        setIsSelected(name);
-    }
 
     return(
-        <section id="realisations" className="w-screen h-fit flex flex-col justify-center items-center bg-bgBlue py-20">
+        <section  id="realisations" className="w-screen h-fit flex flex-col justify-center items-center bg-bgBlue py-20">
             <SectionTitle colored={false}>
                 MES RÉALISATIONS
             </SectionTitle>
-            <ul className="flex mb-10" aria-label="filter" aria-describedby="Liste de filtre pour les réalisations">
-                {filterTab.map((filter, index)=>(
-                    <li key={index}>
-                        <button 
-                            onClick={()=>handleSelected(filter.name)} 
-                            className={`${isSelected === filter.name ? "bg-navBlue text-white hover:text-white" : "bg-white" } px-5 py-2 mx-5  hover:bg-navBlue hover:text-white duration-150`}>
-                                {filter.name}
-                        </button>
-                    </li>
-                ))}
-            </ul>
-            <section className="flex flex-wrap justify-center">
+            {isMobile ?
+                <>
+                <select 
+                    name="filter" 
+                    aria-label="filter" 
+                    aria-describedby="Liste de filtre pour les réalisations"
+                    className="w-64 h-10 p-2 sm:w-96"
+                    onChange={(e)=>setIsSelected(e.target.value)}
+                >
+                    <option value="tous">Selectionner un filtre</option>
+                    {filterTab.map((filter, index)=>(
+                        <option key={`${index}-${filter}`} value={filter}>{filter}</option>
+                    ))}
+                </select> 
+                </>
+                :
+                <ul className="flex mb-10" aria-label="filter" aria-describedby="Liste de filtre pour les réalisations">
+                    {filterTab.map((filter, index)=>(
+                        <li key={index}>
+                            <button 
+                                onClick={()=>setIsSelected(filter)} 
+                                className={`${isSelected === filter ? "bg-navBlue text-white hover:text-white" : "bg-white" } px-5 py-2 mx-5  hover:bg-navBlue hover:text-white duration-150`}>
+                                    {filter}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            }
+            <section ref={slided} className="flex flex-wrap justify-center">
                 {tabtoShow.map((project,index)=>(
                     <RealisationItem  
                         key={`${project}-${index}`} 
