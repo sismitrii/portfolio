@@ -1,4 +1,4 @@
-import image from '../../assets/images/header.JPG'
+import image from '../../assets/images/compressed_header.jpg'
 import HeaderText from './HeaderText'
 import HeaderScrollBtn from './HeaderScrollBtn'
 
