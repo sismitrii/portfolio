@@ -12,18 +12,19 @@ export default function Competence(){
         {
             text: 'CSS3',
             color: '#3163a9',
-            percentage: 65
-        },
-        {
-            text: 'Sass',
-            color: '#bf6c97',
-            percentage: 60
+            percentage: 70
         },
         {
             text: 'JS',
             color: '#dba444',
-            percentage: 75
+            percentage: 70
         },
+        {
+            text: 'Sass',
+            color: '#bf6c97',
+            percentage: 65
+        },
+
         {
             text: 'React',
             color: '#60d6fa',
