@@ -6,8 +6,10 @@ export default function Header(){
     return (
     <header id="accueil" className="w-screen h-screen bg-bgBlue">
         <img className="w-full h-screen object-cover object-bottom opacity-90" src ={image} alt="Florian Guerin" />
-        <HeaderText />
-        <HeaderScrollBtn />
+        <div className='flex flex-col items-center'>
+            <HeaderText />
+            <HeaderScrollBtn />
+        </div>
     </header>
     )
 }
