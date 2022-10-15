@@ -1,6 +1,34 @@
 import file from '../../assets/files/CV_Guerin_Florian.pdf'
 
 export default function NavbarMobile({isOpen, setIsOpen}){
+
+    const linkTab = [
+        {
+            content:"Accueil",
+            delay: "",
+            href: "#accueil"
+        },
+        {
+            content:"À propos",
+            delay: "animation-delay-100",
+            href: "#about"
+        },
+        {
+            content:"Compétences",
+            delay: "animation-delay-200",
+            href: "#competence"
+        },
+        {
+            content:"Réalisations",
+            delay: "animation-delay-300",
+            href: "#realisations"
+        },
+        {
+            content:"Contact",
+            delay: "animation-delay-400",
+            href: "#contact"
+        }
+    ]
     
     return(
     <div className={`h-full flex flex-col ${!isOpen ? "" : "mt-5"} items-end mr-5`}>
@@ -18,12 +46,20 @@ export default function NavbarMobile({isOpen, setIsOpen}){
 
         {isOpen && 
         <nav className=" absolute duration-500 uppercase flex flex-col items-end text-3xl mt-10">
-                <a className="p-5 my-3 font-bold hover:text-navBlue rotateY " href="#accueil" >Accueil</a>
-                <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-100" href="#about">À propos</a>
-                <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-200" href="#competence">Compétences</a>
-                <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-300" href="#realisations">Réalisations</a>
-                <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-400" href="#contact">Contact</a>
-                <a className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-500" href={file} download>CV</a>
+            {linkTab.map((link,index)=>(
+                <a 
+                    key={`${link}-${index}`}
+                    onClick={()=>{
+                            setIsOpen(false)
+                    }}
+
+                    className={`p-5 my-3 font-bold hover:text-navBlue rotateY ${link.delay}`} 
+                    href={link.href}  
+                >
+                    {link.content}
+                </a>
+            ))}
+                <a onClick={()=>setIsOpen(false)} className="p-5 my-3 font-bold hover:text-navBlue rotateY animation-delay-500" href={file} download>CV</a>
         </nav>}
     </div>
     )
