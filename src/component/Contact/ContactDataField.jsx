@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function ContactDataField({dataField, areFocused, setAreFocused}){
+export default function ContactDataField({dataField, areFocused, setAreFocused, inputs, index}){
     const [textHeight, setTextHeight] = useState("150px")
 
     async function handleKeyUp(e){
@@ -18,6 +18,7 @@ export default function ContactDataField({dataField, areFocused, setAreFocused})
             </label>
             {dataField.type === "textarea" ? 
             <textarea
+                ref={(element) => {inputs.current[index] = element}}
                 style={{height: textHeight}}
                 className={`${!areFocused[dataField.id] ? "-translate-y-[42px]" : "-translate-y-[22px]"} min-h-[100px] lg:text-xl pl-3 pt-2 duration-500 -mb-5 resize-none`}
                 onChange={(e)=>handleKeyUp(e)}
@@ -29,6 +30,7 @@ export default function ContactDataField({dataField, areFocused, setAreFocused})
             />
             :
             <input 
+                ref={(element) => {inputs.current[index] = element}}
                 className={`${!areFocused[dataField.id] ? "-translate-y-[42px]": "-translate-y-[22px]"} border h-10 text-lg lg:h-12 lg:text-xl pl-3 duration-500`}
                 type={`${dataField.type}`} 
                 id={`${dataField.id}`} 
