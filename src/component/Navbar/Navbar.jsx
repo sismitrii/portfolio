@@ -21,7 +21,7 @@ export default function Navbar(){
                 <a href="#competence" ref={React.createRef()}>Compétences</a>
                 <a href="#realisations" ref={React.createRef()}>Réalisations</a>
                 <a href="#contact" ref={React.createRef()}>Contact</a>
-                <a href={file} download>CV</a>
+                <a href={file} target='_blank' rel='noopener noreferrer' download>CV</a>
             </ScrollSpy>
         </nav>
             }

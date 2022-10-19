@@ -1,7 +1,7 @@
 export default function RealisationItem({project,index}){
     return (
-    <article className="relative w-64 h-64 sm:w-96 sm:h-96 p-1 sm:p-10 m-10 bg-sky-800 text-white text-center hover:scale-110 duration-500 ">
-        <a href={project.url}>
+    <article className="relative w-64 h-64 sm:w-96 sm:h-96 p-1 sm:p-10 m-10 bg-sky-800 text-white text-center hover:scale-110 duration-500 cursor-pointer ">
+        <a href={project.url} target='_blank' rel='noopener noreferrer'>
             <h4 className="text-xl sm:text-3xl m-4">{project.name}</h4>
             <p className="text-sm sm:text-lg italic">{project.description}</p>
             <ul className="flex flex-wrap mt-5 justify-center">
