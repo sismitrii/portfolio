@@ -5,30 +5,29 @@ import CompetenceCircle from "./CompetenceCircle"
 export default function Competence(){
     const competenceTab = [
         {
-            text: 'HTML5',
-            color: '#db6337',
-            percentage: 80
-        },
-        {
-            text: 'CSS3',
-            color: '#3163a9',
+            text: 'JS',
+            color: '#dba444',
             percentage: 70
         },
         {
-            text: 'JS',
-            color: '#dba444',
+            text: 'React',
+            color: '#60d6fa',
+            percentage: 50
+        },
+        {
+            text: 'Node.js',
+            color: '#98C23C',
+            percentage: 30
+        },
+        {
+            text: 'HTML5/CSS3',
+            color: '#db6337',
             percentage: 70
         },
         {
             text: 'Sass',
             color: '#bf6c97',
             percentage: 65
-        },
-
-        {
-            text: 'React',
-            color: '#60d6fa',
-            percentage: 50
         },
         {
             text: 'git',
